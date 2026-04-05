@@ -34,6 +34,9 @@ export * from "@/repositories/notifications/INotificationsRepository.js";
 export { default as MongoNotificationsRepository } from "@/repositories/notifications/MongoNotificationsRepository.js";
 export { TimescaleNotificationsRepository } from "@/repositories/notifications/TimescaleNotificationsRepository.js";
 
+export * from "@/repositories/notification-history/INotificationHistoryRepository.js";
+export { default as MongoNotificationHistoryRepository } from "@/repositories/notification-history/MongoNotificationHistoryRepository.js";
+
 export * from "@/repositories/incidents/IIncidentsRepository.js";
 export { default as MongoIncidentsRepository } from "@/repositories/incidents/MongoIncidentsRepository.js";
 export { TimescaleIncidentsRepository } from "@/repositories/incidents/TimescaleIncidentsRepository.js";

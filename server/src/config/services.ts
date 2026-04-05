@@ -121,6 +121,7 @@ import {
 	IRecoveryTokensRepository,
 	ISettingsRepository,
 	INotificationsRepository,
+	INotificationHistoryRepository,
 	IIncidentsRepository,
 	ITeamsRepository,
 	IMaintenanceWindowsRepository,
@@ -301,6 +302,8 @@ export const initializeServices = async ({
 
 	const notificationsService = new NotificationsService(
 		notificationsRepository,
+		notificationHistoryRepository,
+		incidentsRepository,
 		monitorsRepository,
 		webhookProvider,
 		emailProvider,

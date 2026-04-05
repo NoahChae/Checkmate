@@ -9,6 +9,26 @@ interface NotificationDocument extends Omit<Notification, "id" | "userId" | "tea
 	updatedAt: Date;
 }
 
+const NotificationEscalationSchema = new Schema({
+	id: {
+		type: String,
+		required: true,
+	},
+	delayMinutes: {
+		type: Number,
+		required: true,
+		min: 0,
+	},
+	message: {
+		type: String,
+		default: null,
+	},
+	enabled: {
+		type: Boolean,
+		default: true,
+	},
+}, { _id: false });
+
 const NotificationSchema = new Schema<NotificationDocument>(
 	{
 		userId: {
@@ -37,6 +57,11 @@ const NotificationSchema = new Schema<NotificationDocument>(
 		homeserverUrl: { type: String },
 		roomId: { type: String },
 		accessToken: { type: String },
+		escalations: [NotificationEscalationSchema],
+		escalationEnabled: {
+			type: Boolean,
+			default: false,
+		},
 	},
 	{
 		timestamps: true,

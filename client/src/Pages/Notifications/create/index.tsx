@@ -88,8 +88,7 @@ const NotificationsCreatePage = () => {
 	const handleTest = async () => {
 		const isValid = await trigger();
 		if (!isValid) return;
-		const data = getValues();
-		await testPost("/notifications/test", data);
+		await testPost("/notifications/test", getValues());
 	};
 
 	return (
