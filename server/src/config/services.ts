@@ -94,6 +94,7 @@ import {
 	MongoInvitesRepository,
 	MongoRecoveryTokensRepository,
 	MongoNotificationsRepository,
+	MongoNotificationHistoryRepository,
 	MongoIncidentsRepository,
 	MongoTeamsRepository,
 	MongoMaintenanceWindowsRepository,
@@ -204,6 +205,7 @@ export const initializeServices = async ({
 	let recoveryTokensRepository: IRecoveryTokensRepository;
 	let settingsRepository: ISettingsRepository;
 	let notificationsRepository: INotificationsRepository;
+	let notificationHistoryRepository: INotificationHistoryRepository;
 	let incidentsRepository: IIncidentsRepository;
 	let teamsRepository: ITeamsRepository;
 	let maintenanceWindowsRepository: IMaintenanceWindowsRepository;
@@ -221,6 +223,7 @@ export const initializeServices = async ({
 		recoveryTokensRepository = new MongoRecoveryTokensRepository();
 		settingsRepository = new MongoSettingsRepository();
 		notificationsRepository = new MongoNotificationsRepository();
+		notificationHistoryRepository = new MongoNotificationHistoryRepository();
 		incidentsRepository = new MongoIncidentsRepository();
 		teamsRepository = new MongoTeamsRepository();
 		maintenanceWindowsRepository = new MongoMaintenanceWindowsRepository();
@@ -239,6 +242,7 @@ export const initializeServices = async ({
 		recoveryTokensRepository = new TimescaleRecoveryTokensRepository(pool);
 		settingsRepository = new TimescaleSettingsRepository(pool);
 		notificationsRepository = new TimescaleNotificationsRepository(pool);
+		notificationHistoryRepository = new MongoNotificationHistoryRepository();
 		incidentsRepository = new TimescaleIncidentsRepository(pool);
 		teamsRepository = new TimescaleTeamsRepository(pool);
 		maintenanceWindowsRepository = new TimescaleMaintenanceWindowsRepository(pool);
